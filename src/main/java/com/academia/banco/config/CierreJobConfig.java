@@ -1,5 +1,7 @@
 package com.academia.banco.config;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.job.builder.JobBuilder;
@@ -13,7 +15,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 @Configuration
 public class CierreJobConfig {
 
-    // Un Step de tipo Tasklet: recibe JobRepository y PlatformTransactionManager
+    // Un Step de tipo Tasklet: hace UNA tarea y termina.
     @Bean
     public Step saludoStep(JobRepository jobRepository, PlatformTransactionManager transactionManager) {
         return new StepBuilder("saludoStep", jobRepository)
@@ -24,11 +26,29 @@ public class CierreJobConfig {
                 .build();
     }
 
-    // El Job: el contenedor de los steps. Por ahora tiene uno.
+    // Otro Tasklet: revisa que exista el archivo de movimientos de la fecha que recibió el Job.
     @Bean
-    public Job cierreDelDiaJob(JobRepository jobRepository, Step saludoStep) {
+    public Step verificarArchivoStep(JobRepository jobRepository, PlatformTransactionManager transactionManager) {
+        return new StepBuilder("verificarArchivoStep", jobRepository)
+                .tasklet((contribution, chunkContext) -> {
+                    Object fecha = chunkContext.getStepContext().getJobParameters().get("fecha");
+                    Path archivo = Path.of("datos/movimientos-" + fecha + ".csv");
+                    if (!Files.exists(archivo)) {
+                        throw new IllegalStateException("No existe el archivo del día: " + archivo);
+                    }
+                    long movimientos = Files.readAllLines(archivo).size() - 1;   // menos el encabezado
+                    System.out.println(">>> Archivo del día: " + archivo + " (" + movimientos + " movimientos)");
+                    return RepeatStatus.FINISHED;
+                }, transactionManager)
+                .build();
+    }
+
+    // El Job: el contenedor de los steps. Primero el saludo, después la revisión del archivo.
+    @Bean
+    public Job cierreDelDiaJob(JobRepository jobRepository, Step saludoStep, Step verificarArchivoStep) {
         return new JobBuilder("cierreDelDiaJob", jobRepository)
                 .start(saludoStep)
+                .next(verificarArchivoStep)
                 .build();
     }
 }
