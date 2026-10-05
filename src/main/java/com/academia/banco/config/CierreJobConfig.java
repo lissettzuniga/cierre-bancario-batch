@@ -2,6 +2,7 @@ package com.academia.banco.config;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.stream.Stream;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.job.builder.JobBuilder;
@@ -15,7 +16,6 @@ import org.springframework.transaction.PlatformTransactionManager;
 @Configuration
 public class CierreJobConfig {
 
-    // Un Step de tipo Tasklet: hace UNA tarea y termina.
     @Bean
     public Step saludoStep(JobRepository jobRepository, PlatformTransactionManager transactionManager) {
         return new StepBuilder("saludoStep", jobRepository)
@@ -26,7 +26,6 @@ public class CierreJobConfig {
                 .build();
     }
 
-    // Otro Tasklet: revisa que exista el archivo de movimientos de la fecha que recibió el Job.
     @Bean
     public Step verificarArchivoStep(JobRepository jobRepository, PlatformTransactionManager transactionManager) {
         return new StepBuilder("verificarArchivoStep", jobRepository)
@@ -36,19 +35,36 @@ public class CierreJobConfig {
                     if (!Files.exists(archivo)) {
                         throw new IllegalStateException("No existe el archivo del día: " + archivo);
                     }
-                    long movimientos = Files.readAllLines(archivo).size() - 1;   // menos el encabezado
+                    long movimientos = Files.readAllLines(archivo).size() - 1;
                     System.out.println(">>> Archivo del día: " + archivo + " (" + movimientos + " movimientos)");
                     return RepeatStatus.FINISHED;
                 }, transactionManager)
                 .build();
     }
 
-    // El Job: el contenedor de los steps. Primero el saludo, después la revisión del archivo.
     @Bean
-    public Job cierreDelDiaJob(JobRepository jobRepository, Step saludoStep, Step verificarArchivoStep) {
+    public Step contarArchivosStep(JobRepository jobRepository, PlatformTransactionManager transactionManager) {
+        return new StepBuilder("contarArchivosStep", jobRepository)
+                .tasklet((contribution, chunkContext) -> {
+                    try (Stream<Path> archivos = Files.list(Path.of("datos"))) {
+                        long total = archivos.count();
+                        System.out.println(">>> Total de archivos en datos/: " + total);
+                    }
+                    return RepeatStatus.FINISHED;
+                }, transactionManager)
+                .build();
+    }
+
+    @Bean
+    public Job cierreDelDiaJob(
+            JobRepository jobRepository,
+            Step saludoStep,
+            Step verificarArchivoStep,
+            Step contarArchivosStep) {
         return new JobBuilder("cierreDelDiaJob", jobRepository)
                 .start(saludoStep)
                 .next(verificarArchivoStep)
+                .next(contarArchivosStep)
                 .build();
     }
 }
