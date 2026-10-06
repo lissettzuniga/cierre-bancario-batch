@@ -21,6 +21,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.FileSystemResource;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.transaction.PlatformTransactionManager;
 
 @Configuration
@@ -77,10 +78,24 @@ public class CierreJobConfig {
     }
 
     @Bean
-    public Job cierreDelDiaJob(JobRepository jobRepository, Step verificarArchivoStep, Step cargarMovimientosStep) {
+    public Step resumenStep(JobRepository jobRepository, PlatformTransactionManager transactionManager, JdbcTemplate jdbcTemplate) {
+        return new StepBuilder("resumenStep", jobRepository)
+                .tasklet((contribution, chunkContext) -> {
+                    Long totalMovimientos = jdbcTemplate.queryForObject("SELECT COUNT(*) FROM movimiento", Long.class);
+                    Double sumaMontos = jdbcTemplate.queryForObject("SELECT COALESCE(SUM(monto), 0) FROM movimiento", Double.class);
+                    
+                    System.out.println(">>> [RESUMEN BATCH] Total registros en BD: " + totalMovimientos + " | Suma total de montos: " + sumaMontos);
+                    return RepeatStatus.FINISHED;
+                }, transactionManager)
+                .build();
+    }
+
+    @Bean
+    public Job cierreDelDiaJob(JobRepository jobRepository, Step verificarArchivoStep, Step cargarMovimientosStep, Step resumenStep) {
         return new JobBuilder("cierreDelDiaJob", jobRepository)
                 .start(verificarArchivoStep)
                 .next(cargarMovimientosStep)
+                .next(resumenStep)
                 .build();
     }
 }
