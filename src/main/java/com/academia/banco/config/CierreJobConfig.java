@@ -1,31 +1,31 @@
 package com.academia.banco.config;
 
+import com.academia.banco.model.Movimiento;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.stream.Stream;
+import javax.sql.DataSource;
+
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
+import org.springframework.batch.core.configuration.annotation.StepScope;
 import org.springframework.batch.core.job.builder.JobBuilder;
 import org.springframework.batch.core.repository.JobRepository;
 import org.springframework.batch.core.step.builder.StepBuilder;
+import org.springframework.batch.item.database.JdbcBatchItemWriter;
+import org.springframework.batch.item.database.builder.JdbcBatchItemWriterBuilder;
+import org.springframework.batch.item.file.FlatFileItemReader;
+import org.springframework.batch.item.file.builder.FlatFileItemReaderBuilder;
 import org.springframework.batch.repeat.RepeatStatus;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.transaction.PlatformTransactionManager;
 
 @Configuration
 public class CierreJobConfig {
 
-    @Bean
-    public Step saludoStep(JobRepository jobRepository, PlatformTransactionManager transactionManager) {
-        return new StepBuilder("saludoStep", jobRepository)
-                .tasklet((contribution, chunkContext) -> {
-                    System.out.println(">>> Hola desde el cierre del día");
-                    return RepeatStatus.FINISHED;
-                }, transactionManager)
-                .build();
-    }
-
+    // Tasklet: revisa que exista el archivo de movimientos de la fecha que recibió el Job.
     @Bean
     public Step verificarArchivoStep(JobRepository jobRepository, PlatformTransactionManager transactionManager) {
         return new StepBuilder("verificarArchivoStep", jobRepository)
@@ -35,36 +35,55 @@ public class CierreJobConfig {
                     if (!Files.exists(archivo)) {
                         throw new IllegalStateException("No existe el archivo del día: " + archivo);
                     }
-                    long movimientos = Files.readAllLines(archivo).size() - 1;
+                    long movimientos = Files.readAllLines(archivo).size() - 1;   // menos el encabezado
                     System.out.println(">>> Archivo del día: " + archivo + " (" + movimientos + " movimientos)");
                     return RepeatStatus.FINISHED;
                 }, transactionManager)
                 .build();
     }
 
+    // El Lector: lee el archivo de la fecha del Job, un renglón a la vez, y lo convierte en un Movimiento.
     @Bean
-    public Step contarArchivosStep(JobRepository jobRepository, PlatformTransactionManager transactionManager) {
-        return new StepBuilder("contarArchivosStep", jobRepository)
-                .tasklet((contribution, chunkContext) -> {
-                    try (Stream<Path> archivos = Files.list(Path.of("datos"))) {
-                        long total = archivos.count();
-                        System.out.println(">>> Total de archivos en datos/: " + total);
-                    }
-                    return RepeatStatus.FINISHED;
-                }, transactionManager)
+    @StepScope
+    public FlatFileItemReader<Movimiento> movimientoReader(@Value("#{jobParameters['fecha']}") String fecha) {
+        return new FlatFileItemReaderBuilder<Movimiento>()
+                .name("movimientoReader")
+                .resource(new FileSystemResource("datos/movimientos-" + fecha + ".csv"))
+                .linesToSkip(1)                          // el encabezado
+                .delimited()                             // separado por comas
+                .names("cuenta", "tipo", "monto")        // las columnas, en orden
+                .targetType(Movimiento.class)            // cada renglón → un Movimiento
                 .build();
     }
 
+    // El Escritor: guarda en MySQL los movimientos que le llegan, todos juntos.
     @Bean
-    public Job cierreDelDiaJob(
-            JobRepository jobRepository,
-            Step saludoStep,
-            Step verificarArchivoStep,
-            Step contarArchivosStep) {
+    public JdbcBatchItemWriter<Movimiento> movimientoWriter(DataSource dataSource) {
+        return new JdbcBatchItemWriterBuilder<Movimiento>()
+                .dataSource(dataSource)
+                .sql("INSERT INTO movimiento (cuenta, tipo, monto) VALUES (:cuenta, :tipo, :monto)")
+                .beanMapped()                            // :cuenta → movimiento.cuenta(), etc.
+                .build();
+    }
+
+    // Un Step de tipo Chunk: lee y escribe de 10 en 10. (El Procesador llega en la MP-3.)
+    @Bean
+    public Step cargarMovimientosStep(JobRepository jobRepository, PlatformTransactionManager transactionManager,
+                                      FlatFileItemReader<Movimiento> movimientoReader,
+                                      JdbcBatchItemWriter<Movimiento> movimientoWriter) {
+        return new StepBuilder("cargarMovimientosStep", jobRepository)
+                .<Movimiento, Movimiento>chunk(10, transactionManager)
+                .reader(movimientoReader)
+                .writer(movimientoWriter)
+                .build();
+    }
+
+    // El Job: primero revisa que llegó el archivo, después lo carga.
+    @Bean
+    public Job cierreDelDiaJob(JobRepository jobRepository, Step verificarArchivoStep, Step cargarMovimientosStep) {
         return new JobBuilder("cierreDelDiaJob", jobRepository)
-                .start(saludoStep)
-                .next(verificarArchivoStep)
-                .next(contarArchivosStep)
+                .start(verificarArchivoStep)
+                .next(cargarMovimientosStep)
                 .build();
     }
 }
