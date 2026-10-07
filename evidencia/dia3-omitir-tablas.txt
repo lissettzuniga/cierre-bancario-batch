@@ -1,0 +1,18 @@
+== Instancias y ejecuciones del Job (BATCH_JOB_INSTANCE, BATCH_JOB_EXECUTION, BATCH_JOB_EXECUTION_PARAMS)
++-----------------+------------------+------------+-----------+-----------+
+| JOB_INSTANCE_ID | JOB_EXECUTION_ID | fecha      | STATUS    | EXIT_CODE |
++-----------------+------------------+------------+-----------+-----------+
+|               2 |                2 | 2026-10-06 | COMPLETED | COMPLETED |
+|              15 |               20 | 2026-10-06 | COMPLETED | COMPLETED |
++-----------------+------------------+------------+-----------+-----------+
+== Ejecuciones de cada step (BATCH_STEP_EXECUTION)
++------------------+------------+-------------------------+-----------+------------+--------------+-------------+------------+--------------+----------------+
+| JOB_EXECUTION_ID | fecha      | STEP_NAME               | STATUS    | READ_COUNT | FILTER_COUNT | WRITE_COUNT | SKIP_COUNT | COMMIT_COUNT | ROLLBACK_COUNT |
++------------------+------------+-------------------------+-----------+------------+--------------+-------------+------------+--------------+----------------+
+|                2 | 2026-10-06 | pasoValidarFecha        | COMPLETED |          0 |            0 |           0 |          0 |            1 |              0 |
+|                2 | 2026-10-06 | pasoProcesarMovimientos | COMPLETED |          0 |            0 |           0 |          0 |            1 |              0 |
+|                2 | 2026-10-06 | pasoGenerarResumen      | COMPLETED |          0 |            0 |           0 |          0 |            1 |              0 |
+|               20 | 2026-10-06 | verificarArchivoStep    | COMPLETED |          0 |            0 |           0 |          0 |            1 |              0 |
+|               20 | 2026-10-06 | cargarMovimientosStep   | COMPLETED |         18 |            1 |          17 |          2 |            2 |              0 |
+|               20 | 2026-10-06 | resumenStep             | COMPLETED |          0 |            0 |           0 |          0 |            1 |              0 |
++------------------+------------+-------------------------+-----------+------------+--------------+-------------+------------+--------------+----------------+

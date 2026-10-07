@@ -15,6 +15,7 @@ import org.springframework.batch.core.step.builder.StepBuilder;
 import org.springframework.batch.item.database.JdbcBatchItemWriter;
 import org.springframework.batch.item.database.builder.JdbcBatchItemWriterBuilder;
 import org.springframework.batch.item.file.FlatFileItemReader;
+import org.springframework.batch.item.file.FlatFileParseException;
 import org.springframework.batch.item.file.builder.FlatFileItemReaderBuilder;
 import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.beans.factory.annotation.Value;
@@ -74,6 +75,9 @@ public class CierreJobConfig {
                 .reader(movimientoReader)
                 .processor(new MovimientoProcessor())
                 .writer(movimientoWriter)
+                .faultTolerant()
+                .skip(FlatFileParseException.class)
+                .skipLimit(3)
                 .build();
     }
 
