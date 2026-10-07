@@ -53,3 +53,23 @@ docker compose up -d --wait
 
 5. **Mi predicción de la MP-3, paso 1: ¿qué habría pasado sin el Procesador?**
    Los registros se habrían insertado en MySQL conservando inconsistencias de formato (espacios extra, minúsculas/mayúsculas). Al consultar o agrupar (`GROUP BY tipo`), habrían aparecido categorías dispersas e incorrectas como `" RETIRO"`, `"deposito"` o `"Retiro"`, afectando los saldos finales.
+
+
+## Día 3 · Parámetros, fallas y reinicio
+
+### Boleto de salida
+
+1. **¿Qué diferencia hay entre una JobInstance y una JobExecution? Usa como ejemplo el cierre del 25.**  
+   La `JobInstance` representa la definición lógica de una ejecución de trabajo asociada a parámetros identificadores únicos (en este caso, `fecha=2026-10-25`). La `JobExecution` representa cada intento técnico de ejecutar esa instancia. Para el cierre del 25 existió una única `JobInstance`, pero dos `JobExecution`: la primera falló (`FAILED`) y la segunda, al reintentarse con la misma fecha, terminó con éxito (`COMPLETED`).
+
+2. **¿En qué caso Spring Batch se niega a correr un cierre, y en qué caso lo reinicia?**  
+   Spring Batch se niega a correr un cierre cuando la `JobInstance` asociada a esa fecha ya tiene una `JobExecution` previa con estado `COMPLETED` (garantizando idempotencia). Por el contrario, si la última `JobExecution` de esa instancia terminó en estado `FAILED` (o interrumpió de forma no definitiva), Spring Batch permite reiniciar el Job reutilizando la misma instancia.
+
+3. **En el reinicio del día 5, ¿por qué el step de carga leyó 10 movimientos y no 20?**  
+   Porque en la ejecución fallida previo a la corrección, el primer chunk (movimientos 1 al 10) ya se había procesado, escrito y confirmado (`COMMIT_COUNT = 1`). Spring Batch registró ese punto de control (checkpoint) en el `BATCH_STEP_EXECUTION_CONTEXT`. Al reiniciar, el lector reanudó la lectura exactamente a partir del registro 11, leyendo únicamente los 10 movimientos restantes para completar los 20 sin duplicar datos.
+
+4. **¿Qué diferencia hay entre un movimiento filtrado y uno omitido?**  
+   Un movimiento **filtrado** se lee y parsea correctamente a nivel de estructura, pero el `ItemProcessor` decide ignorarlo de forma explícita según reglas de negocio (retornando `null`, por ejemplo para tipos no permitidos como `PAGO`), incrementando `FILTER_COUNT`. Un movimiento **omitido** (skip) sufre un error técnico de parseo o formato (como `FlatFileParseException` al encontrar texto donde debía ir un monto numérico) y el step, al ser `faultTolerant()`, lo salta e incrementa `SKIP_COUNT`.
+
+5. **¿Por qué importa el código de salida, si el estado ya queda en las tablas?**  
+   Porque los orquestadores y planificadores de tareas de producción (como Control-M) no consultan la base de datos de metadatos de Spring Batch; únicamente evalúan el código de retorno que la JVM entrega al sistema operativo al finalizar la ejecución del proceso. Un código de salida `0` indica éxito, mientras que un código distinto (como `5` o `1`) notifica al orquestador que el Job falló, permitiéndole lanzar alertas o detener flujos dependientes.
