@@ -1,0 +1,169 @@
+$ ./mvnw -q spring-boot:run -Dspring-boot.run.arguments="fecha=2026-10-08"
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[10,42] cannot find symbol
+  symbol:   class Job
+  location: package org.springframework.batch.core.job
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[13,43] cannot find symbol
+  symbol:   class Step
+  location: package org.springframework.batch.core.step
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[15,58] package org.springframework.batch.infrastructure.item.data does not exist
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[16,66] package org.springframework.batch.infrastructure.item.data.builder does not exist
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[17,62] package org.springframework.batch.infrastructure.item.database does not exist
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[18,62] package org.springframework.batch.infrastructure.item.database does not exist
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[19,70] package org.springframework.batch.infrastructure.item.database.builder does not exist
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[20,70] package org.springframework.batch.infrastructure.item.database.builder does not exist
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[21,58] package org.springframework.batch.infrastructure.item.file does not exist
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[22,58] package org.springframework.batch.infrastructure.item.file does not exist
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[23,66] package org.springframework.batch.infrastructure.item.file.builder does not exist
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[24,55] package org.springframework.batch.infrastructure.repeat does not exist
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[37,12] cannot find symbol
+  symbol:   class Step
+  location: class com.academia.banco.config.CierreJobConfig
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[55,12] cannot find symbol
+  symbol:   class FlatFileItemReader
+  location: class com.academia.banco.config.CierreJobConfig
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[68,12] cannot find symbol
+  symbol:   class JdbcBatchItemWriter
+  location: class com.academia.banco.config.CierreJobConfig
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[79,39] cannot find symbol
+  symbol:   class FlatFileItemReader
+  location: class com.academia.banco.config.CierreJobConfig
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[80,39] cannot find symbol
+  symbol:   class JdbcBatchItemWriter
+  location: class com.academia.banco.config.CierreJobConfig
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[78,12] cannot find symbol
+  symbol:   class Step
+  location: class com.academia.banco.config.CierreJobConfig
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[97,12] cannot find symbol
+  symbol:   class JdbcCursorItemReader
+  location: class com.academia.banco.config.CierreJobConfig
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[114,12] cannot find symbol
+  symbol:   class MongoItemWriter
+  location: class com.academia.banco.config.CierreJobConfig
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[124,36] cannot find symbol
+  symbol:   class JdbcCursorItemReader
+  location: class com.academia.banco.config.CierreJobConfig
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[125,36] cannot find symbol
+  symbol:   class MongoItemWriter
+  location: class com.academia.banco.config.CierreJobConfig
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[123,12] cannot find symbol
+  symbol:   class Step
+  location: class com.academia.banco.config.CierreJobConfig
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[136,61] cannot find symbol
+  symbol:   class Step
+  location: class com.academia.banco.config.CierreJobConfig
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[136,88] cannot find symbol
+  symbol:   class Step
+  location: class com.academia.banco.config.CierreJobConfig
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[137,32] cannot find symbol
+  symbol:   class Step
+  location: class com.academia.banco.config.CierreJobConfig
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[136,12] cannot find symbol
+  symbol:   class Job
+  location: class com.academia.banco.config.CierreJobConfig
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[47,28] cannot find symbol
+  symbol:   variable RepeatStatus
+  location: class com.academia.banco.config.CierreJobConfig
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[56,20] cannot find symbol
+  symbol:   class FlatFileItemReaderBuilder
+  location: class com.academia.banco.config.CierreJobConfig
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[69,20] cannot find symbol
+  symbol:   class JdbcBatchItemWriterBuilder
+  location: class com.academia.banco.config.CierreJobConfig
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[88,23] cannot find symbol
+  symbol:   class FlatFileParseException
+  location: class com.academia.banco.config.CierreJobConfig
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[98,20] cannot find symbol
+  symbol:   class JdbcCursorItemReaderBuilder
+  location: class com.academia.banco.config.CierreJobConfig
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[115,20] cannot find symbol
+  symbol:   class MongoItemWriterBuilder
+  location: class com.academia.banco.config.CierreJobConfig
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:compile (default-compile) on project cierre-bancario-batch: Compilation failure: Compilation failure: 
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[10,42] cannot find symbol
+[ERROR]   symbol:   class Job
+[ERROR]   location: package org.springframework.batch.core.job
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[13,43] cannot find symbol
+[ERROR]   symbol:   class Step
+[ERROR]   location: package org.springframework.batch.core.step
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[15,58] package org.springframework.batch.infrastructure.item.data does not exist
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[16,66] package org.springframework.batch.infrastructure.item.data.builder does not exist
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[17,62] package org.springframework.batch.infrastructure.item.database does not exist
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[18,62] package org.springframework.batch.infrastructure.item.database does not exist
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[19,70] package org.springframework.batch.infrastructure.item.database.builder does not exist
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[20,70] package org.springframework.batch.infrastructure.item.database.builder does not exist
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[21,58] package org.springframework.batch.infrastructure.item.file does not exist
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[22,58] package org.springframework.batch.infrastructure.item.file does not exist
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[23,66] package org.springframework.batch.infrastructure.item.file.builder does not exist
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[24,55] package org.springframework.batch.infrastructure.repeat does not exist
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[37,12] cannot find symbol
+[ERROR]   symbol:   class Step
+[ERROR]   location: class com.academia.banco.config.CierreJobConfig
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[55,12] cannot find symbol
+[ERROR]   symbol:   class FlatFileItemReader
+[ERROR]   location: class com.academia.banco.config.CierreJobConfig
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[68,12] cannot find symbol
+[ERROR]   symbol:   class JdbcBatchItemWriter
+[ERROR]   location: class com.academia.banco.config.CierreJobConfig
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[79,39] cannot find symbol
+[ERROR]   symbol:   class FlatFileItemReader
+[ERROR]   location: class com.academia.banco.config.CierreJobConfig
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[80,39] cannot find symbol
+[ERROR]   symbol:   class JdbcBatchItemWriter
+[ERROR]   location: class com.academia.banco.config.CierreJobConfig
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[78,12] cannot find symbol
+[ERROR]   symbol:   class Step
+[ERROR]   location: class com.academia.banco.config.CierreJobConfig
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[97,12] cannot find symbol
+[ERROR]   symbol:   class JdbcCursorItemReader
+[ERROR]   location: class com.academia.banco.config.CierreJobConfig
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[114,12] cannot find symbol
+[ERROR]   symbol:   class MongoItemWriter
+[ERROR]   location: class com.academia.banco.config.CierreJobConfig
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[124,36] cannot find symbol
+[ERROR]   symbol:   class JdbcCursorItemReader
+[ERROR]   location: class com.academia.banco.config.CierreJobConfig
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[125,36] cannot find symbol
+[ERROR]   symbol:   class MongoItemWriter
+[ERROR]   location: class com.academia.banco.config.CierreJobConfig
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[123,12] cannot find symbol
+[ERROR]   symbol:   class Step
+[ERROR]   location: class com.academia.banco.config.CierreJobConfig
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[136,61] cannot find symbol
+[ERROR]   symbol:   class Step
+[ERROR]   location: class com.academia.banco.config.CierreJobConfig
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[136,88] cannot find symbol
+[ERROR]   symbol:   class Step
+[ERROR]   location: class com.academia.banco.config.CierreJobConfig
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[137,32] cannot find symbol
+[ERROR]   symbol:   class Step
+[ERROR]   location: class com.academia.banco.config.CierreJobConfig
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[136,12] cannot find symbol
+[ERROR]   symbol:   class Job
+[ERROR]   location: class com.academia.banco.config.CierreJobConfig
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[47,28] cannot find symbol
+[ERROR]   symbol:   variable RepeatStatus
+[ERROR]   location: class com.academia.banco.config.CierreJobConfig
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[56,20] cannot find symbol
+[ERROR]   symbol:   class FlatFileItemReaderBuilder
+[ERROR]   location: class com.academia.banco.config.CierreJobConfig
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[69,20] cannot find symbol
+[ERROR]   symbol:   class JdbcBatchItemWriterBuilder
+[ERROR]   location: class com.academia.banco.config.CierreJobConfig
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[88,23] cannot find symbol
+[ERROR]   symbol:   class FlatFileParseException
+[ERROR]   location: class com.academia.banco.config.CierreJobConfig
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[98,20] cannot find symbol
+[ERROR]   symbol:   class JdbcCursorItemReaderBuilder
+[ERROR]   location: class com.academia.banco.config.CierreJobConfig
+[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[115,20] cannot find symbol
+[ERROR]   symbol:   class MongoItemWriterBuilder
+[ERROR]   location: class com.academia.banco.config.CierreJobConfig
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+Código de salida: 1

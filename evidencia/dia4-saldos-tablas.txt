@@ -1,0 +1,2 @@
+== Instancias y ejecuciones del Job (BATCH_JOB_INSTANCE, BATCH_JOB_EXECUTION, BATCH_JOB_EXECUTION_PARAMS)
+== Ejecuciones de cada step (BATCH_STEP_EXECUTION)
