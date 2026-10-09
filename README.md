@@ -73,3 +73,27 @@ docker compose up -d --wait
 
 5. **¿Por qué importa el código de salida, si el estado ya queda en las tablas?**  
    Porque los orquestadores y planificadores de tareas de producción (como Control-M) no consultan la base de datos de metadatos de Spring Batch; únicamente evalúan el código de retorno que la JVM entrega al sistema operativo al finalizar la ejecución del proceso. Un código de salida `0` indica éxito, mientras que un código distinto (como `5` o `1`) notifica al orquestador que el Job falló, permitiéndole lanzar alertas o detener flujos dependientes.
+
+## Día 4 · De MySQL a MongoDB
+
+### Boleto de salida
+
+1. **¿Qué hace cada uno de los tres steps de tu Job, y de qué tipo es cada uno?**
+   - `verificarArchivoStep` (**Tasklet**): Comprueba la existencia y disponibilidad del archivo CSV diario.
+   - `cargarMovimientosStep` (**Chunk**): Lee el CSV diario, valida/transforma los movimientos y los inserta en la tabla MySQL `movimiento`.
+   - `publicarSaldosStep` (**Chunk**): Lee los movimientos consolidados desde MySQL, calcula los saldos agregados por cuenta y los persiste en la colección `saldos` de MongoDB.
+
+2. **¿Por qué el cierre del 9 no duplicó los saldos, y el del 10 (sin `@Id`) sí?**
+   - El cierre del 9 utilizó la anotación `@Id` en la propiedad `cuenta` del record `SaldoCuenta`. Esto hace que Spring Data MongoDB utilice operaciones de tipo *upsert* (`save`), sobreescribiendo el documento si la clave primaria ya existe.
+   - Al retirar `@Id` en el cierre del 10, MongoDB no reconoce ningún atributo como identificador único y asigna automáticamente un `ObjectId` dinámico predeterminado a cada inserción, generando documentos duplicados.
+
+3. **Al reiniciar el cierre del 11, ¿por qué no se cargó otra vez el archivo?**
+   - Porque Spring Batch consulta los metadatos guardados en la base de datos (`BATCH_STEP_EXECUTION`). Al detectar que `verificarArchivoStep` y `cargarMovimientosStep` ya tenían el estado `COMPLETED`, los omitió automáticamente y reanudó la ejecución a partir del primer paso fallido (`publicarSaldosStep`).
+
+4. **¿Qué diferencia hay entre `spring-boot-starter-data-mongodb` y «Spring Batch MongoDB» (`batch-data-mongodb`)?**
+   - `spring-boot-starter-data-mongodb`: Proporciona la infraestructura base de Spring Data (como `MongoTemplate` y los repositorios) para interactuar, mapear y persistir entidades en MongoDB.
+   - `batch-data-mongodb`: Ofrece componentes especializados para flujos por lotes (`MongoItemReader` y `MongoItemWriter`), integrando operaciones en chunks y paginación directamente con el ciclo de vida de Spring Batch.
+
+## Lo que aprendí esta semana
+
+Un proceso batch es una ejecución automatizada por lotes que procesa grandes volúmenes de datos de forma eficiente y sin intervención humana directa. En Spring Batch, un Job se compone de uno o varios Steps, los cuales pueden implementarse como Tasklets (para tareas puntuales o administrativas) o Chunks (orientados al procesamiento iterativo con Reader, Processor y Writer). Lo más potente de Spring Batch es su gestión de resiliencia y trazabilidad mediante tablas de metadatos: si ocurre una falla a mitad de un proceso, el framework registra exactamente qué pasos se completaron y en qué punto ocurrió el error. Esto permite reiniciar el Job corrigiendo únicamente la causa raíz, garantizando la idempotencia y evitando reprocesar o duplicar la información ya procesada.

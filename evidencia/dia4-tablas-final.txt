@@ -1,0 +1,30 @@
+== Instancias y ejecuciones del Job (BATCH_JOB_INSTANCE, BATCH_JOB_EXECUTION, BATCH_JOB_EXECUTION_PARAMS)
++-----------------+------------------+------------+-----------+-----------+
+| JOB_INSTANCE_ID | JOB_EXECUTION_ID | fecha      | STATUS    | EXIT_CODE |
++-----------------+------------------+------------+-----------+-----------+
+|              32 |               41 | 2026-10-09 | COMPLETED | COMPLETED |
+|              33 |               42 | 2026-10-10 | COMPLETED | COMPLETED |
+|              34 |               43 | 2026-10-11 | FAILED    | FAILED    |
+|              34 |               44 | 2026-10-11 | COMPLETED | COMPLETED |
++-----------------+------------------+------------+-----------+-----------+
+== Ejecuciones de cada step (BATCH_STEP_EXECUTION)
++------------------+------------+-----------------------+-----------+------------+--------------+-------------+------------+--------------+----------------+
+| JOB_EXECUTION_ID | fecha      | STEP_NAME             | STATUS    | READ_COUNT | FILTER_COUNT | WRITE_COUNT | SKIP_COUNT | COMMIT_COUNT | ROLLBACK_COUNT |
++------------------+------------+-----------------------+-----------+------------+--------------+-------------+------------+--------------+----------------+
+|               41 | 2026-10-09 | verificarArchivoStep  | COMPLETED |          0 |            0 |           0 |          0 |            1 |              0 |
+|               41 | 2026-10-09 | cargarMovimientosStep | COMPLETED |         15 |            0 |          15 |          0 |            2 |              0 |
+|               41 | 2026-10-09 | publicarSaldosStep    | COMPLETED |          5 |            0 |           5 |          0 |            2 |              0 |
+|               42 | 2026-10-10 | verificarArchivoStep  | COMPLETED |          0 |            0 |           0 |          0 |            1 |              0 |
+|               42 | 2026-10-10 | cargarMovimientosStep | COMPLETED |         15 |            0 |          15 |          0 |            2 |              0 |
+|               42 | 2026-10-10 | publicarSaldosStep    | COMPLETED |         10 |            0 |          10 |          0 |            4 |              0 |
+|               43 | 2026-10-11 | verificarArchivoStep  | COMPLETED |          0 |            0 |           0 |          0 |            1 |              0 |
+|               43 | 2026-10-11 | cargarMovimientosStep | COMPLETED |         15 |            0 |          15 |          0 |            2 |              0 |
+|               43 | 2026-10-11 | publicarSaldosStep    | FAILED    |          0 |            0 |           0 |          0 |            0 |              0 |
+|               44 | 2026-10-11 | publicarSaldosStep    | COMPLETED |         15 |            0 |          15 |          0 |            6 |              0 |
++------------------+------------+-----------------------+-----------+------------+--------------+-------------+------------+--------------+----------------+
+== Por qué falló (la primera línea de EXIT_MESSAGE de cada step FAILED)
++------------------+--------------------+-------------------------------------------------------------------------------------+
+| JOB_EXECUTION_ID | STEP_NAME          | EXIT_MESSAGE                                                                        |
++------------------+--------------------+-------------------------------------------------------------------------------------+
+|               43 | publicarSaldosStep | org.springframework.batch.item.ItemStreamException: Failed to initialize the reader |
++------------------+--------------------+-------------------------------------------------------------------------------------+
