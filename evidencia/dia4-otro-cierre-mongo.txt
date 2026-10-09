@@ -1,0 +1,2 @@
+5
+[ { _id: '1001', saldo: Decimal128('8203.00'), movimientos: 3 } ]

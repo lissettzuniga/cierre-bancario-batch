@@ -1,0 +1,10 @@
+10
+[
+  { _id: '1001', saldo: Decimal128('8203.00'), movimientos: 3 },
+  {
+    _id: ObjectId('6ac90bd6fc9ae00e984e4fee'),
+    cuenta: '1001',
+    saldo: Decimal128('8203.00'),
+    movimientos: 3
+  }
+]

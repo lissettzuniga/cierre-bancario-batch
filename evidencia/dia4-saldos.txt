@@ -1,169 +1,47 @@
 $ ./mvnw -q spring-boot:run -Dspring-boot.run.arguments="fecha=2026-10-08"
-[ERROR] COMPILATION ERROR : 
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[10,42] cannot find symbol
-  symbol:   class Job
-  location: package org.springframework.batch.core.job
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[13,43] cannot find symbol
-  symbol:   class Step
-  location: package org.springframework.batch.core.step
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[15,58] package org.springframework.batch.infrastructure.item.data does not exist
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[16,66] package org.springframework.batch.infrastructure.item.data.builder does not exist
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[17,62] package org.springframework.batch.infrastructure.item.database does not exist
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[18,62] package org.springframework.batch.infrastructure.item.database does not exist
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[19,70] package org.springframework.batch.infrastructure.item.database.builder does not exist
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[20,70] package org.springframework.batch.infrastructure.item.database.builder does not exist
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[21,58] package org.springframework.batch.infrastructure.item.file does not exist
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[22,58] package org.springframework.batch.infrastructure.item.file does not exist
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[23,66] package org.springframework.batch.infrastructure.item.file.builder does not exist
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[24,55] package org.springframework.batch.infrastructure.repeat does not exist
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[37,12] cannot find symbol
-  symbol:   class Step
-  location: class com.academia.banco.config.CierreJobConfig
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[55,12] cannot find symbol
-  symbol:   class FlatFileItemReader
-  location: class com.academia.banco.config.CierreJobConfig
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[68,12] cannot find symbol
-  symbol:   class JdbcBatchItemWriter
-  location: class com.academia.banco.config.CierreJobConfig
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[79,39] cannot find symbol
-  symbol:   class FlatFileItemReader
-  location: class com.academia.banco.config.CierreJobConfig
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[80,39] cannot find symbol
-  symbol:   class JdbcBatchItemWriter
-  location: class com.academia.banco.config.CierreJobConfig
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[78,12] cannot find symbol
-  symbol:   class Step
-  location: class com.academia.banco.config.CierreJobConfig
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[97,12] cannot find symbol
-  symbol:   class JdbcCursorItemReader
-  location: class com.academia.banco.config.CierreJobConfig
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[114,12] cannot find symbol
-  symbol:   class MongoItemWriter
-  location: class com.academia.banco.config.CierreJobConfig
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[124,36] cannot find symbol
-  symbol:   class JdbcCursorItemReader
-  location: class com.academia.banco.config.CierreJobConfig
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[125,36] cannot find symbol
-  symbol:   class MongoItemWriter
-  location: class com.academia.banco.config.CierreJobConfig
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[123,12] cannot find symbol
-  symbol:   class Step
-  location: class com.academia.banco.config.CierreJobConfig
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[136,61] cannot find symbol
-  symbol:   class Step
-  location: class com.academia.banco.config.CierreJobConfig
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[136,88] cannot find symbol
-  symbol:   class Step
-  location: class com.academia.banco.config.CierreJobConfig
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[137,32] cannot find symbol
-  symbol:   class Step
-  location: class com.academia.banco.config.CierreJobConfig
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[136,12] cannot find symbol
-  symbol:   class Job
-  location: class com.academia.banco.config.CierreJobConfig
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[47,28] cannot find symbol
-  symbol:   variable RepeatStatus
-  location: class com.academia.banco.config.CierreJobConfig
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[56,20] cannot find symbol
-  symbol:   class FlatFileItemReaderBuilder
-  location: class com.academia.banco.config.CierreJobConfig
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[69,20] cannot find symbol
-  symbol:   class JdbcBatchItemWriterBuilder
-  location: class com.academia.banco.config.CierreJobConfig
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[88,23] cannot find symbol
-  symbol:   class FlatFileParseException
-  location: class com.academia.banco.config.CierreJobConfig
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[98,20] cannot find symbol
-  symbol:   class JdbcCursorItemReaderBuilder
-  location: class com.academia.banco.config.CierreJobConfig
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[115,20] cannot find symbol
-  symbol:   class MongoItemWriterBuilder
-  location: class com.academia.banco.config.CierreJobConfig
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:compile (default-compile) on project cierre-bancario-batch: Compilation failure: Compilation failure: 
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[10,42] cannot find symbol
-[ERROR]   symbol:   class Job
-[ERROR]   location: package org.springframework.batch.core.job
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[13,43] cannot find symbol
-[ERROR]   symbol:   class Step
-[ERROR]   location: package org.springframework.batch.core.step
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[15,58] package org.springframework.batch.infrastructure.item.data does not exist
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[16,66] package org.springframework.batch.infrastructure.item.data.builder does not exist
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[17,62] package org.springframework.batch.infrastructure.item.database does not exist
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[18,62] package org.springframework.batch.infrastructure.item.database does not exist
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[19,70] package org.springframework.batch.infrastructure.item.database.builder does not exist
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[20,70] package org.springframework.batch.infrastructure.item.database.builder does not exist
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[21,58] package org.springframework.batch.infrastructure.item.file does not exist
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[22,58] package org.springframework.batch.infrastructure.item.file does not exist
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[23,66] package org.springframework.batch.infrastructure.item.file.builder does not exist
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[24,55] package org.springframework.batch.infrastructure.repeat does not exist
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[37,12] cannot find symbol
-[ERROR]   symbol:   class Step
-[ERROR]   location: class com.academia.banco.config.CierreJobConfig
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[55,12] cannot find symbol
-[ERROR]   symbol:   class FlatFileItemReader
-[ERROR]   location: class com.academia.banco.config.CierreJobConfig
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[68,12] cannot find symbol
-[ERROR]   symbol:   class JdbcBatchItemWriter
-[ERROR]   location: class com.academia.banco.config.CierreJobConfig
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[79,39] cannot find symbol
-[ERROR]   symbol:   class FlatFileItemReader
-[ERROR]   location: class com.academia.banco.config.CierreJobConfig
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[80,39] cannot find symbol
-[ERROR]   symbol:   class JdbcBatchItemWriter
-[ERROR]   location: class com.academia.banco.config.CierreJobConfig
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[78,12] cannot find symbol
-[ERROR]   symbol:   class Step
-[ERROR]   location: class com.academia.banco.config.CierreJobConfig
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[97,12] cannot find symbol
-[ERROR]   symbol:   class JdbcCursorItemReader
-[ERROR]   location: class com.academia.banco.config.CierreJobConfig
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[114,12] cannot find symbol
-[ERROR]   symbol:   class MongoItemWriter
-[ERROR]   location: class com.academia.banco.config.CierreJobConfig
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[124,36] cannot find symbol
-[ERROR]   symbol:   class JdbcCursorItemReader
-[ERROR]   location: class com.academia.banco.config.CierreJobConfig
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[125,36] cannot find symbol
-[ERROR]   symbol:   class MongoItemWriter
-[ERROR]   location: class com.academia.banco.config.CierreJobConfig
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[123,12] cannot find symbol
-[ERROR]   symbol:   class Step
-[ERROR]   location: class com.academia.banco.config.CierreJobConfig
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[136,61] cannot find symbol
-[ERROR]   symbol:   class Step
-[ERROR]   location: class com.academia.banco.config.CierreJobConfig
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[136,88] cannot find symbol
-[ERROR]   symbol:   class Step
-[ERROR]   location: class com.academia.banco.config.CierreJobConfig
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[137,32] cannot find symbol
-[ERROR]   symbol:   class Step
-[ERROR]   location: class com.academia.banco.config.CierreJobConfig
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[136,12] cannot find symbol
-[ERROR]   symbol:   class Job
-[ERROR]   location: class com.academia.banco.config.CierreJobConfig
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[47,28] cannot find symbol
-[ERROR]   symbol:   variable RepeatStatus
-[ERROR]   location: class com.academia.banco.config.CierreJobConfig
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[56,20] cannot find symbol
-[ERROR]   symbol:   class FlatFileItemReaderBuilder
-[ERROR]   location: class com.academia.banco.config.CierreJobConfig
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[69,20] cannot find symbol
-[ERROR]   symbol:   class JdbcBatchItemWriterBuilder
-[ERROR]   location: class com.academia.banco.config.CierreJobConfig
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[88,23] cannot find symbol
-[ERROR]   symbol:   class FlatFileParseException
-[ERROR]   location: class com.academia.banco.config.CierreJobConfig
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[98,20] cannot find symbol
-[ERROR]   symbol:   class JdbcCursorItemReaderBuilder
-[ERROR]   location: class com.academia.banco.config.CierreJobConfig
-[ERROR] /home/lissett/cierre-bancario-batch/src/main/java/com/academia/banco/config/CierreJobConfig.java:[115,20] cannot find symbol
-[ERROR]   symbol:   class MongoItemWriterBuilder
-[ERROR]   location: class com.academia.banco.config.CierreJobConfig
-[ERROR] -> [Help 1]
-[ERROR] 
-[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR] 
-[ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
-Código de salida: 1
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.4)
+
+2026-10-09T09:30:28.972-06:00  INFO 22562 --- [cierre-bancario-batch] [           main] c.a.b.CierreBancarioBatchApplication     : Starting CierreBancarioBatchApplication using Java 17.0.20.1 with PID 22562 (/home/lissett/cierre-bancario-batch/target/classes started by lissett in /home/lissett/cierre-bancario-batch)
+2026-10-09T09:30:28.974-06:00  INFO 22562 --- [cierre-bancario-batch] [           main] c.a.b.CierreBancarioBatchApplication     : No active profile set, falling back to 1 default profile: "default"
+2026-10-09T09:30:29.315-06:00  INFO 22562 --- [cierre-bancario-batch] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2026-10-09T09:30:29.324-06:00  INFO 22562 --- [cierre-bancario-batch] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 MongoDB repository interfaces.
+2026-10-09T09:30:29.428-06:00  WARN 22562 --- [cierre-bancario-batch] [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2026-10-09T09:30:29.452-06:00  WARN 22562 --- [cierre-bancario-batch] [           main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource-org.springframework.boot.autoconfigure.jdbc.DataSourceProperties' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2026-10-09T09:30:29.454-06:00  WARN 22562 --- [cierre-bancario-batch] [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration$PooledDataSourceConfiguration' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration$PooledDataSourceConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2026-10-09T09:30:29.455-06:00  WARN 22562 --- [cierre-bancario-batch] [           main] trationDelegate$BeanPostProcessorChecker : Bean 'jdbcConnectionDetails' of type [org.springframework.boot.autoconfigure.jdbc.PropertiesJdbcConnectionDetails] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2026-10-09T09:30:29.469-06:00  WARN 22562 --- [cierre-bancario-batch] [           main] trationDelegate$BeanPostProcessorChecker : Bean 'dataSource' of type [com.zaxxer.hikari.HikariDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2026-10-09T09:30:29.472-06:00  WARN 22562 --- [cierre-bancario-batch] [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration$JdbcTransactionManagerConfiguration' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration$JdbcTransactionManagerConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2026-10-09T09:30:29.475-06:00  WARN 22562 --- [cierre-bancario-batch] [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.transaction.TransactionManagerCustomizationAutoConfiguration' of type [org.springframework.boot.autoconfigure.transaction.TransactionManagerCustomizationAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2026-10-09T09:30:29.477-06:00  WARN 22562 --- [cierre-bancario-batch] [           main] trationDelegate$BeanPostProcessorChecker : Bean 'transactionExecutionListeners' of type [org.springframework.boot.autoconfigure.transaction.ExecutionListenersTransactionManagerCustomizer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2026-10-09T09:30:29.479-06:00  WARN 22562 --- [cierre-bancario-batch] [           main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.transaction-org.springframework.boot.autoconfigure.transaction.TransactionProperties' of type [org.springframework.boot.autoconfigure.transaction.TransactionProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2026-10-09T09:30:29.479-06:00  WARN 22562 --- [cierre-bancario-batch] [           main] trationDelegate$BeanPostProcessorChecker : Bean 'platformTransactionManagerCustomizers' of type [org.springframework.boot.autoconfigure.transaction.TransactionManagerCustomizers] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2026-10-09T09:30:29.481-06:00  WARN 22562 --- [cierre-bancario-batch] [           main] trationDelegate$BeanPostProcessorChecker : Bean 'transactionManager' of type [org.springframework.jdbc.support.JdbcTransactionManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2026-10-09T09:30:29.488-06:00  WARN 22562 --- [cierre-bancario-batch] [           main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.batch-org.springframework.boot.autoconfigure.batch.BatchProperties' of type [org.springframework.boot.autoconfigure.batch.BatchProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2026-10-09T09:30:29.493-06:00  WARN 22562 --- [cierre-bancario-batch] [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.batch.BatchAutoConfiguration$SpringBootBatchConfiguration' of type [org.springframework.boot.autoconfigure.batch.BatchAutoConfiguration$SpringBootBatchConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [jobRegistryBeanPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2026-10-09T09:30:29.508-06:00  INFO 22562 --- [cierre-bancario-batch] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-09T09:30:29.755-06:00  INFO 22562 --- [cierre-bancario-batch] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@636bbbbb
+2026-10-09T09:30:29.756-06:00  INFO 22562 --- [cierre-bancario-batch] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-09T09:30:29.993-06:00  INFO 22562 --- [cierre-bancario-batch] [           main] org.mongodb.driver.client                : MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync|spring-boot", "version": "5.0.1"}, "os": {"type": "Linux", "name": "Linux", "architecture": "amd64", "version": "6.18.33.2-microsoft-standard-WSL2"}, "platform": "Java/Ubuntu/17.0.20.1+1-1-26.04-Ubuntu"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=MongoCredential{mechanism=null, userName='academia', source='admin', password=<hidden>, mechanismProperties=<hidden>}, transportSettings=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@3aaa3c39, com.mongodb.Jep395RecordCodecProvider@65a9ea3c, com.mongodb.KotlinCodecProvider@70f68288]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+2026-10-09T09:30:30.003-06:00  INFO 22562 --- [cierre-bancario-batch] [localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=27, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=25187568}
+2026-10-09T09:30:30.252-06:00  INFO 22562 --- [cierre-bancario-batch] [           main] c.a.b.CierreBancarioBatchApplication     : Started CierreBancarioBatchApplication in 1.526 seconds (process running for 1.708)
+2026-10-09T09:30:30.255-06:00  INFO 22562 --- [cierre-bancario-batch] [           main] o.s.b.a.b.JobLauncherApplicationRunner   : Running default command line with: [fecha=2026-10-08]
+2026-10-09T09:30:30.323-06:00  INFO 22562 --- [cierre-bancario-batch] [           main] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=cierreDelDiaJob]] launched with the following parameters: [{'fecha':'{value=2026-10-08, type=class java.lang.String, identifying=true}'}]
+2026-10-09T09:30:30.360-06:00  INFO 22562 --- [cierre-bancario-batch] [           main] o.s.batch.core.job.SimpleStepHandler     : Executing step: [verificarArchivoStep]
+>>> Archivo del día: datos/movimientos-2026-10-08.csv (20 movimientos)
+2026-10-09T09:30:30.395-06:00  INFO 22562 --- [cierre-bancario-batch] [           main] o.s.batch.core.step.AbstractStep         : Step: [verificarArchivoStep] executed in 34ms
+2026-10-09T09:30:30.429-06:00  INFO 22562 --- [cierre-bancario-batch] [           main] o.s.batch.core.job.SimpleStepHandler     : Executing step: [cargarMovimientosStep]
+2026-10-09T09:30:30.529-06:00  INFO 22562 --- [cierre-bancario-batch] [           main] o.s.batch.core.step.AbstractStep         : Step: [cargarMovimientosStep] executed in 99ms
+2026-10-09T09:30:30.558-06:00  INFO 22562 --- [cierre-bancario-batch] [           main] o.s.batch.core.job.SimpleStepHandler     : Executing step: [publicarSaldosStep]
+2026-10-09T09:30:30.739-06:00  INFO 22562 --- [cierre-bancario-batch] [           main] o.s.batch.core.step.AbstractStep         : Step: [publicarSaldosStep] executed in 180ms
+2026-10-09T09:30:30.763-06:00  INFO 22562 --- [cierre-bancario-batch] [           main] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=cierreDelDiaJob]] completed with the following parameters: [{'fecha':'{value=2026-10-08, type=class java.lang.String, identifying=true}'}] and the following status: [COMPLETED] in 420ms
+2026-10-09T09:30:30.774-06:00  INFO 22562 --- [cierre-bancario-batch] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-10-09T09:30:30.782-06:00  INFO 22562 --- [cierre-bancario-batch] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+Código de salida: 0
