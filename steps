@@ -1,0 +1,26 @@
+[33m10e194f[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m MP-3: sin duplicar (y lo que pasa sin @Id)
+[33ma8aa0b1[m MP-2: el segundo step (MySQL → MongoDB)
+[33mb9c61e7[m MP-1: MongoDB en el proyecto
+[33m63de6a5[m[33m ([m[1;31morigin/main[m[33m)[m Reto Día 3: filtrar movimientos mayores a 10000
+[33mb42ea4e[m[33m ([m[1;33mtag: [m[1;33mdia-3[m[33m)[m MP-6: README y evidencia del día 3
+[33ma45fc5b[m MP-5: omitir renglones ilegibles, con límite
+[33m1bbe702[m MP-4: el código de salida
+[33mc73afd6[m MP-3: falla a la mitad y reinicio
+[33m2cca550[m MP-2: el Procesador filtra los tipos inválidos
+[33m9900efb[m MP-1: el cierre del 25, por fin
+[33mcee3eeb[m[33m ([m[1;33mtag: [m[1;33mdia-2[m[33m)[m docs: agregar boleto de salida Día 2 al README
+[33mb52861c[m Reto opcional: Agregado resumenStep con Tasklet e JdbcTemplate
+[33m2f3c9ab[m MP-5: README y evidencia del día 2
+[33mfdf1f9f[m MP-4: el tamaño del chunk
+[33mc706a97[m MP-3: el Procesador limpia el tipo
+[33m2681837[m MP-2: el primer chunk (CSV → MySQL)
+[33maaad7e5[m MP-1: archivos del banco, Movimiento y la tabla movimiento
+[33m307933d[m Add code block for running scripts in README
+[33md07073f[m Format README.md for better readability
+[33ma02e120[m feat: implementar contarArchivosStep para el reto opcional
+[33m00d8951[m docs: actualizar respuestas del Boleto de Salida en README
+[33mcc0ba0e[m[33m ([m[1;33mtag: [m[1;33mdia-1[m[33m)[m MP-5: README y evidencia del día 1
+[33m8adf8f2[m MP-4: dos steps y un cierre que falla
+[33md81a79b[m MP-3: instancias y ejecuciones
+[33ma887813[m MP-2: primer Job con un Tasklet
+[33mb513a12[m MP-1: proyecto de Spring Batch con MySQL
