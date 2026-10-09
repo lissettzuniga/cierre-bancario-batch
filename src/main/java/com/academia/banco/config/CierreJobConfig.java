@@ -3,6 +3,8 @@ package com.academia.banco.config;
 import com.academia.banco.batch.MovimientoProcessor;
 import com.academia.banco.model.Movimiento;
 import com.academia.banco.model.SaldoCuenta;
+import com.academia.banco.processor.FiltroSaldoPositivoProcessor;
+
 import java.nio.file.Files;
 import java.nio.file.Path;
 import javax.sql.DataSource;
@@ -12,6 +14,8 @@ import org.springframework.batch.core.configuration.annotation.StepScope;
 import org.springframework.batch.core.job.builder.JobBuilder;
 import org.springframework.batch.core.repository.JobRepository;
 import org.springframework.batch.core.step.builder.StepBuilder;
+import org.springframework.batch.item.ItemReader;
+import org.springframework.batch.item.ItemWriter;
 import org.springframework.batch.item.data.MongoItemWriter;
 import org.springframework.batch.item.data.builder.MongoItemWriterBuilder;
 import org.springframework.batch.item.database.JdbcBatchItemWriter;
@@ -118,14 +122,18 @@ public class CierreJobConfig {
                 .build();
     }
 
-    // Step de tipo Chunk: lee de MySQL y escribe en MongoDB, de 3 en 3.
+    // Step de tipo Chunk: lee de MySQL, filtra saldos negativos y escribe en MongoDB.
     @Bean
-    public Step publicarSaldosStep(JobRepository jobRepository, PlatformTransactionManager transactionManager,
+    public Step publicarSaldosStep(JobRepository jobRepository,
+                                   PlatformTransactionManager transactionManager,
                                    JdbcCursorItemReader<SaldoCuenta> saldoReader,
+                                   FiltroSaldoPositivoProcessor filtroSaldoPositivoProcessor,
                                    MongoItemWriter<SaldoCuenta> saldoWriter) {
+
         return new StepBuilder("publicarSaldosStep", jobRepository)
-                .<SaldoCuenta, SaldoCuenta>chunk(3, transactionManager)
+                .<SaldoCuenta, SaldoCuenta>chunk(10, transactionManager)
                 .reader(saldoReader)
+                .processor(filtroSaldoPositivoProcessor)
                 .writer(saldoWriter)
                 .build();
     }

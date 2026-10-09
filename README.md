@@ -97,3 +97,11 @@ docker compose up -d --wait
 ## Lo que aprendí esta semana
 
 Un proceso batch es una ejecución automatizada por lotes que procesa grandes volúmenes de datos de forma eficiente y sin intervención humana directa. En Spring Batch, un Job se compone de uno o varios Steps, los cuales pueden implementarse como Tasklets (para tareas puntuales o administrativas) o Chunks (orientados al procesamiento iterativo con Reader, Processor y Writer). Lo más potente de Spring Batch es su gestión de resiliencia y trazabilidad mediante tablas de metadatos: si ocurre una falla a mitad de un proceso, el framework registra exactamente qué pasos se completaron y en qué punto ocurrió el error. Esto permite reiniciar el Job corrigiendo únicamente la causa raíz, garantizando la idempotencia y evitando reprocesar o duplicar la información ya procesada.
+
+## Reto Opcional: Cuentas sobregiradas
+
+- **FILTER_COUNT obtenido:** 6 (se filtraron las 6 cuentas con saldo menor a cero en `publicarSaldosStep`).
+- **¿Qué pasa con los documentos de cuentas sobregiradas que ya están en MongoDB?**
+  Al retornar `null` en el `ItemProcessor`, el registro no llega al `MongoItemWriter`, por lo que **permanece sin cambios en MongoDB**. Filtrar en un Writer no borra documentos existentes.
+- **¿Qué se debería hacer con los documentos viejos?**
+  Para eliminar las cuentas sobregiradas persistidas previamente, se requeriría una tarea de limpieza explícita, como un **Tasklet** anterior o posterior que ejecute un borrado directo (`db.saldos.deleteMany({saldo: {$lt: 0}})` o `mongoTemplate.remove()`).
